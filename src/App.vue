@@ -3,10 +3,28 @@
         <el-container class="post-guard-el-container"
                       ref="post_guard_el_container"
                       @mousewheel="mouseWheelHandle"
-                      @DOMMouseScroll="mouseWheelHandle">
+                      @DOMMouseScroll="mouseWheelHandle"
+                      @touchstart="handleTouchstart"
+                      @touchend="handleTouchend"
+                      @touchmove="handleTouchmove">
             <el-header class="post-guard-el-header">
-                Post Guard
+                <el-menu class="post-guard-el-menu"
+                         mode="horizontal"
+                         :default-active=pageController.currentPage.toString()
+                         :ellipsis="false"
+                         @select="(index)=>move(Number(index))"
+                         style="height:10vh">
+
+                    <div class="flex-grow" style="flex-grow: 1"/>
+                    <el-menu-item index="1">首页</el-menu-item>
+                    <el-menu-item index="2">产品</el-menu-item>
+                    <el-menu-item index="3">优势</el-menu-item>
+                    <el-menu-item index="4">愿景</el-menu-item>
+                    <el-menu-item index="5">用户评价</el-menu-item>
+                    <el-menu-item index="6">我们</el-menu-item>
+                </el-menu>
             </el-header>
+
             <el-main class="post-guard-el-main" ref="post_guard_el_main">
                 <div class="sectionController" ref="sectionController">
                     <div class="section section1">
@@ -21,6 +39,12 @@
                     <div class="section section4">
                         4
                     </div>
+                    <div class="section section5">
+                        5
+                    </div>
+                    <div class="section section6">
+                        6
+                    </div>
                 </div>
 
             </el-main>
@@ -32,7 +56,7 @@
 </template>
 
 <script setup lang="ts">
-import {onMounted, ref} from "vue";
+import {ref} from "vue";
 
 const post_guard_layout = ref<HTMLElement>();
 const post_guard_el_container = ref<HTMLElement>();
@@ -41,12 +65,12 @@ const sectionController = ref<HTMLElement>();
 
 const pageController = ref({
     currentPage: 1,
-    pageSum: 4,
+    pageSum: 6,
     isScrolling: false,
     deltaY: 0,
 })
 
-function move(index) {
+function move(index:number) {
 
         pageController.value.isScrolling = true;
 
@@ -65,6 +89,7 @@ function move(index) {
 
 // 往下切换
 function nextPage() {
+    console.log(pageController.value)
     if (pageController.value.currentPage + 1 <= pageController.value.pageSum) { // 如果当前页面编号+1 小于总个数，则可以执行向下滑动
         pageController.value.currentPage += 1; // 页面+1
         move(pageController.value.currentPage); // 执行切换
@@ -98,6 +123,46 @@ function mouseWheelHandle(event) {
         previousPage();
     }
 }
+
+
+// 清除触摸事件
+function handleTouchmove(event) {
+    event.preventDefault()
+}
+// 手指按下屏幕
+function handleTouchstart(event) {
+    this.startTime = Date.now()
+    this.startX = event.changedTouches[0].clientX
+    this.startY = event.changedTouches[0].clientY
+}
+
+// 手指离开屏幕
+function handleTouchend(event) {
+    const endTime = Date.now()
+    const endX = event.changedTouches[0].clientX
+    const endY = event.changedTouches[0].clientY
+    // 判断按下的时长
+    if (endTime - this.startTime > 2000) {
+        return;
+    }
+    // 滑动的方向
+    let direction = "";
+    // 先判断用户滑动的距离，是否合法，合法:判断滑动的方向 注意 距离要加上绝对值
+    if (Math.abs(endY - this.startY) > 10) {
+        //滑动方向
+        direction = endY - this.startY > 0 ? "down" : "up"
+    } else {
+        return;
+    }
+    // 用户做了合法的滑动操作
+    if (direction === 'up') {
+        this.next();
+    }
+    if (direction === 'down') {
+        this.pre();
+    }
+}
+
 </script>
 
 
@@ -116,17 +181,17 @@ function mouseWheelHandle(event) {
 }
 
 .post-guard-el-header {
-    height: 5vh;
+    height: 10vh;
 }
 
 .post-guard-el-main {
-    height: 95vh;
+    height: 90vh;
     padding: 0;
     overflow: hidden;
 }
 
 .post-guard-el-footer {
-    height: 5vh;
+    /*height: 5vh;*/
 }
 
 .section {
@@ -152,9 +217,26 @@ function mouseWheelHandle(event) {
     background-color: rgb(216, 116, 227);
 }
 
+.section5 {
+    background-color: rgb(0, 231, 255);
+}
+
+.section6 {
+    background-color: rgb(227, 116, 160);
+}
+
 .sectionController {
     height: inherit;
     transition: all linear 0.5s;
 }
+
+
+/*::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #eaecf1;
+    border-radius: 3px;
+}*/
 
 </style>

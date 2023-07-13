@@ -9,11 +9,12 @@
                       @touchmove="handleTouchmove">
             <el-header class="post-guard-el-header">
                 <el-menu class="post-guard-el-menu"
+                         ref="post_guard_el_menu"
                          mode="horizontal"
                          :default-active=pageController.currentPage.toString()
                          :ellipsis="false"
                          @select="(index)=>move(Number(index))"
-                         style="height:10vh">
+                         >
 
                     <div class="flex-grow" style="flex-grow: 1"/>
                     <el-menu-item index="1">首页</el-menu-item>
@@ -48,20 +49,22 @@
                 </div>
 
             </el-main>
-<!--            <el-footer class="post-guard-el-footer">
-                Foot
-            </el-footer>-->
+            <!--            <el-footer class="post-guard-el-footer">
+                            Foot
+                        </el-footer>-->
         </el-container>
     </div>
 </template>
 
 <script setup lang="ts">
-import {ref} from "vue";
+import {onMounted, ref} from "vue";
+
 
 const post_guard_layout = ref<HTMLElement>();
 const post_guard_el_container = ref<HTMLElement>();
 const post_guard_el_main = ref<HTMLElement>();
 const sectionController = ref<HTMLElement>();
+const post_guard_el_menu = ref();
 
 const pageController = ref({
     currentPage: 1,
@@ -70,26 +73,32 @@ const pageController = ref({
     deltaY: 0,
 })
 
-function move(index:number) {
+onMounted(()=>{
+    menuSpecialization(1)
+})
+function move(index: number) {
 
-        pageController.value.isScrolling = true;
+    pageController.value.isScrolling = true;
 
-        let height = sectionController.value.clientHeight; //获取屏幕的高度
-        let scrollHeight; // 计算滚动判断是往上滚还往下滚
+    let height = sectionController.value.clientHeight;
+    // 获取屏幕的高度
+    let scrollHeight;
+    // 计算滚动判断是往上滚还往下滚
 
-        scrollHeight = -(index - 1) * height + "px";
-        sectionController.value.style.transform = `translateY(${scrollHeight})`;
-        pageController.value.currentPage = index;
+    scrollHeight = -(index - 1) * height + "px";
+    menuSpecialization(index);
+    sectionController.value.style.transform = `translateY(${scrollHeight})`;
 
-        setTimeout(() => {
-            pageController.value.isScrolling = false;
-        }, 800);
 
+    pageController.value.currentPage = index;
+
+    setTimeout(() => {
+        pageController.value.isScrolling = false;
+    }, 800);
 }
 
 // 往下切换
 function nextPage() {
-    console.log(pageController.value)
     if (pageController.value.currentPage + 1 <= pageController.value.pageSum) { // 如果当前页面编号+1 小于总个数，则可以执行向下滑动
         pageController.value.currentPage += 1; // 页面+1
         move(pageController.value.currentPage); // 执行切换
@@ -129,6 +138,7 @@ function mouseWheelHandle(event) {
 function handleTouchmove(event) {
     event.preventDefault()
 }
+
 // 手指按下屏幕
 function handleTouchstart(event) {
     this.startTime = Date.now()
@@ -163,6 +173,32 @@ function handleTouchend(event) {
     }
 }
 
+
+function menuSpecialization(index: number) {
+        const menu = document.getElementsByClassName("post-guard-el-menu");
+        console.log(menu.item(0))
+        if (index == 1) {
+                menu.item(0).setAttribute("style","height:10vh;"+
+                    "--el-menu-bg-color: #000000;" +
+                    "--el-menu-active-color: #ffffff;" +
+                    "--el-menu-text-color: #606060;" +
+                    "--el-menu-hover-text-color: #ffffff;" +
+                    "--el-menu-hover-bg-color: #8e8e8e80;" +
+                    "--el-menu-border-color: #000000");
+
+
+
+        } else {
+                menu.item(0).setAttribute("style","height:10vh;"+
+                    "--el-menu-bg-color: #ffffff;" +
+                    "--el-menu-active-color: #409eff;" +
+                    "--el-menu-text-color: #000000;" +
+                    "--el-menu-hover-text-color: #409eff;" +
+                    "--el-menu-hover-bg-color: #ecf5ff;" +
+                    "--el-menu-border-color: #ffffff");
+        }
+}
+
 </script>
 
 
@@ -182,6 +218,8 @@ function handleTouchend(event) {
 
 .post-guard-el-header {
     height: 10vh;
+    padding: 0;
+
 }
 
 .post-guard-el-main {
@@ -192,6 +230,10 @@ function handleTouchend(event) {
 
 .post-guard-el-footer {
     /*height: 5vh;*/
+}
+
+.post-guard-el-menu {
+    transition: all ease 0.5s;
 }
 
 .section {
@@ -227,7 +269,7 @@ function handleTouchend(event) {
 
 .sectionController {
     height: inherit;
-    transition: all linear 0.5s;
+    transition: all ease 0.5s;
 }
 
 

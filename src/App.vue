@@ -28,9 +28,7 @@
 
             <el-main class="post-guard-el-main" ref="post_guard_el_main">
                 <div class="sectionController" ref="sectionController">
-                    <div class="section section1">
-                        1
-                    </div>
+                    <HomePage />
                     <div class="section section2">
                         2
                     </div>
@@ -58,13 +56,9 @@
 
 <script setup lang="ts">
 import {onMounted, ref} from "vue";
+import HomePage from "@/components/HomePage.vue";
 
-
-const post_guard_layout = ref<HTMLElement>();
-const post_guard_el_container = ref<HTMLElement>();
-const post_guard_el_main = ref<HTMLElement>();
 const sectionController = ref<HTMLElement>();
-const post_guard_el_menu = ref();
 
 const pageController = ref({
     currentPage: 1,
@@ -78,23 +72,28 @@ onMounted(()=>{
 })
 function move(index: number) {
 
-    pageController.value.isScrolling = true;
+        pageController.value.isScrolling = true;
 
-    let height = sectionController.value.clientHeight;
-    // 获取屏幕的高度
-    let scrollHeight;
-    // 计算滚动判断是往上滚还往下滚
+        let height = sectionController.value?.clientHeight;
+        // 获取屏幕的高度
+        let scrollHeight;
+        // 计算滚动判断是往上滚还往下滚
 
-    scrollHeight = -(index - 1) * height + "px";
-    menuSpecialization(index);
-    sectionController.value.style.transform = `translateY(${scrollHeight})`;
+        scrollHeight = -(index - 1) * height + "px";
+        menuSpecialization(index);
 
 
-    pageController.value.currentPage = index;
+    if ("style" in sectionController.value) {
+        sectionController.value.style.transform = `translateY(${scrollHeight})`;
+    }
 
-    setTimeout(() => {
-        pageController.value.isScrolling = false;
-    }, 800);
+
+        pageController.value.currentPage = index;
+
+        setTimeout(() => {
+            pageController.value.isScrolling = false;
+        }, 800);
+
 }
 
 // 往下切换
@@ -223,7 +222,7 @@ function menuSpecialization(index: number) {
 }
 
 .post-guard-el-main {
-    height: 90vh;
+    height: 100vh;
     padding: 0;
     overflow: hidden;
 }
@@ -243,9 +242,7 @@ function menuSpecialization(index: number) {
     background-repeat: no-repeat;
 }
 
-.section1 {
-    background-color: rgb(129, 227, 116);
-}
+
 
 .section2 {
     background-color: rgb(227, 197, 116);

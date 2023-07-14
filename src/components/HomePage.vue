@@ -29,6 +29,7 @@
 
 <style scoped>
 .homepage {
+    position: relative;
     width: 100%;
     height: 100%;
     background-position: center center;
@@ -44,7 +45,7 @@
     text-align: center;
     top: 40%;
     left: 50%;
-    transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%);
     font-size: 4vi;
     font-weight: bold;
 }
@@ -53,14 +54,14 @@
     position: absolute;
     color: white;
     text-align: center;
-    top: 48%;
+    top: 52%;
     left: 50%;
     transform: translateX(-50%);
     font-size: 1.2vi;
 }
 
 .bg-color-storm-container {
-    position: absolute;
+    /*position: absolute;*/
     width: 100%;
     height: 100%;
     display: flex;

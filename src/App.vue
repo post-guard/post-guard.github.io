@@ -212,7 +212,7 @@ function menuSpecialization(index: number) {
 
 .post-guard-el-container {
     height: 100vh;
-
+    overflow: hidden;
 }
 
 .post-guard-el-header {
@@ -222,7 +222,7 @@ function menuSpecialization(index: number) {
 }
 
 .post-guard-el-main {
-    height: 100vh;
+    height: 90vh;
     padding: 0;
     overflow: hidden;
 }
@@ -265,7 +265,7 @@ function menuSpecialization(index: number) {
 }
 
 .sectionController {
-    height: inherit;
+    height: 100%;
     transition: all ease 0.5s;
 }
 

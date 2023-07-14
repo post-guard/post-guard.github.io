@@ -14,17 +14,20 @@
         </div>
       </div>
 
-      <div class="title">
+      <div class="homepage-title">
           邮卫兵
       </div>
-      <div class="subtitle">
+      <div class="homepage-subtitle">
           祝北邮人永远健康!
       </div>
   </div>
 </template>
 
 <script setup lang="ts">
-
+const props = defineProps<{
+    currentPage:number;
+    pageNumber:number;
+}>()
 </script>
 
 <style scoped>
@@ -39,7 +42,7 @@
     display: flex;
 }
 
-.title {
+.homepage-title {
     position: absolute;
     color: white;
     text-align: center;
@@ -48,9 +51,10 @@
     transform: translateX(-50%);
     font-size: 4vi;
     font-weight: bold;
+    user-select: none;
 }
 
-.subtitle {
+.homepage-subtitle {
     position: absolute;
     color: white;
     text-align: center;
@@ -58,6 +62,7 @@
     left: 50%;
     transform: translateX(-50%);
     font-size: 1.2vi;
+    user-select: none;
 }
 
 .bg-color-storm-container {

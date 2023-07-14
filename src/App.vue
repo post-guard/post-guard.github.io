@@ -28,13 +28,15 @@
 
             <el-main class="post-guard-el-main" ref="post_guard_el_main">
                 <div class="sectionController" ref="sectionController">
-                    <HomePage />
+                    <HomePage :current-page=pageController.currentPage
+                              :page-number=1
+                    />
                     <div class="section section2">
                         2
                     </div>
-                    <div class="section section3">
-                        3
-                    </div>
+                    <SuperiorityPage :current-page=pageController.currentPage
+                                     :page-number=3
+                    />
                     <div class="section section4">
                         4
                     </div>
@@ -57,6 +59,7 @@
 <script setup lang="ts">
 import {onMounted, ref} from "vue";
 import HomePage from "@/components/HomePage.vue";
+import SuperiorityPage from "@/components/SuperiorityPage.vue";
 
 const sectionController = ref<HTMLElement>();
 
@@ -175,7 +178,7 @@ function handleTouchend(event) {
 
 function menuSpecialization(index: number) {
         const menu = document.getElementsByClassName("post-guard-el-menu");
-        console.log(menu.item(0))
+
         if (index == 1) {
                 menu.item(0).setAttribute("style","height:10vh;"+
                     "--el-menu-bg-color: #000000;" +

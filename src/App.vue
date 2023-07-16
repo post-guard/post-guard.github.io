@@ -14,7 +14,7 @@
                          :default-active=pageController.currentPage.toString()
                          :ellipsis="false"
                          @select="(index)=>move(Number(index))"
-                         >
+                >
 
                     <div class="flex-grow" style="flex-grow: 1"/>
                     <el-menu-item index="1">首页</el-menu-item>
@@ -40,18 +40,13 @@
                     <div class="section section4">
                         4
                     </div>
-                    <div class="section section5">
-                        5
-                    </div>
+                    <EvaluatePage/>
                     <div class="section section6">
                         6
                     </div>
                 </div>
 
             </el-main>
-            <!--            <el-footer class="post-guard-el-footer">
-                            Foot
-                        </el-footer>-->
         </el-container>
     </div>
 </template>
@@ -60,6 +55,7 @@
 import {onMounted, ref} from "vue";
 import HomePage from "@/components/HomePage.vue";
 import SuperiorityPage from "@/components/SuperiorityPage.vue";
+import EvaluatePage from "@/components/EvaluatePage.vue";
 
 const sectionController = ref<HTMLElement>();
 
@@ -70,20 +66,21 @@ const pageController = ref({
     deltaY: 0,
 })
 
-onMounted(()=>{
+onMounted(() => {
     menuSpecialization(1)
 })
+
 function move(index: number) {
 
-        pageController.value.isScrolling = true;
+    pageController.value.isScrolling = true;
 
-        let height = sectionController.value?.clientHeight;
-        // 获取屏幕的高度
-        let scrollHeight;
-        // 计算滚动判断是往上滚还往下滚
+    let height = sectionController.value?.clientHeight;
+    // 获取屏幕的高度
+    let scrollHeight;
+    // 计算滚动判断是往上滚还往下滚
 
-        scrollHeight = -(index - 1) * height + "px";
-        menuSpecialization(index);
+    scrollHeight = -(index - 1) * height + "px";
+    menuSpecialization(index);
 
 
     if ("style" in sectionController.value) {
@@ -91,11 +88,11 @@ function move(index: number) {
     }
 
 
-        pageController.value.currentPage = index;
+    pageController.value.currentPage = index;
 
-        setTimeout(() => {
-            pageController.value.isScrolling = false;
-        }, 800);
+    setTimeout(() => {
+        pageController.value.isScrolling = false;
+    }, 800);
 
 }
 
@@ -177,28 +174,27 @@ function handleTouchend(event) {
 
 
 function menuSpecialization(index: number) {
-        const menu = document.getElementsByClassName("post-guard-el-menu");
+    const menu = document.getElementsByClassName("post-guard-el-menu");
 
-        if (index == 1) {
-                menu.item(0).setAttribute("style","height:10vh;"+
-                    "--el-menu-bg-color: #000000;" +
-                    "--el-menu-active-color: #ffffff;" +
-                    "--el-menu-text-color: #606060;" +
-                    "--el-menu-hover-text-color: #ffffff;" +
-                    "--el-menu-hover-bg-color: #8e8e8e80;" +
-                    "--el-menu-border-color: #000000");
+    if (index == 1) {
+        menu.item(0).setAttribute("style", "height:10vh;" +
+            "--el-menu-bg-color: #000000;" +
+            "--el-menu-active-color: #ffffff;" +
+            "--el-menu-text-color: #606060;" +
+            "--el-menu-hover-text-color: #ffffff;" +
+            "--el-menu-hover-bg-color: #8e8e8e80;" +
+            "--el-menu-border-color: #000000");
 
 
-
-        } else {
-                menu.item(0).setAttribute("style","height:10vh;"+
-                    "--el-menu-bg-color: #ffffff;" +
-                    "--el-menu-active-color: #409eff;" +
-                    "--el-menu-text-color: #000000;" +
-                    "--el-menu-hover-text-color: #409eff;" +
-                    "--el-menu-hover-bg-color: #ecf5ff;" +
-                    "--el-menu-border-color: #ffffff");
-        }
+    } else {
+        menu.item(0).setAttribute("style", "height:10vh;" +
+            "--el-menu-bg-color: #ffffff;" +
+            "--el-menu-active-color: #409eff;" +
+            "--el-menu-text-color: #000000;" +
+            "--el-menu-hover-text-color: #409eff;" +
+            "--el-menu-hover-bg-color: #ecf5ff;" +
+            "--el-menu-border-color: #ffffff");
+    }
 }
 
 </script>
@@ -230,10 +226,6 @@ function menuSpecialization(index: number) {
     overflow: hidden;
 }
 
-.post-guard-el-footer {
-    /*height: 5vh;*/
-}
-
 .post-guard-el-menu {
     transition: all ease 0.5s;
 }
@@ -244,7 +236,6 @@ function menuSpecialization(index: number) {
     background-position: center center;
     background-repeat: no-repeat;
 }
-
 
 
 .section2 {

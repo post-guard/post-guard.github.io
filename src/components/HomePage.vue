@@ -1,32 +1,32 @@
 <template>
-  <div class="homepage">
-      <div class="bg-color-storm-container">
-        <div class="bg-color-storm">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
+    <div class="homepage">
+        <div class="bg-color-storm-container">
+            <div class="bg-color-storm">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
-      </div>
 
-      <div class="homepage-title">
-          邮卫兵
-      </div>
-      <div class="homepage-subtitle">
-          祝北邮人永远健康!
-      </div>
-  </div>
+        <div class="homepage-title">
+            邮卫兵
+        </div>
+        <div class="homepage-subtitle">
+            祝北邮人永远健康!
+        </div>
+    </div>
 </template>
 
 <script setup lang="ts">
 const props = defineProps<{
-    currentPage:number;
-    pageNumber:number;
+    currentPage: number;
+    pageNumber: number;
 }>()
 </script>
 

@@ -3,7 +3,7 @@
         <el-container class="post-guard-el-container"
                       ref="post_guard_el_container"
                       @mousewheel="mouseWheelHandle"
-                      @DOMMouseScroll="mouseWheelHandle"
+                      @wheel="mouseWheelHandle"
                       @touchstart="handleTouchstart"
                       @touchend="handleTouchend"
                       @touchmove="handleTouchmove">

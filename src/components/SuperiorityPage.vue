@@ -36,25 +36,25 @@
             <el-row
                     style="position:absolute; top:50%;width: 100%;margin: auto 0  auto 0">
                 <el-col :span="12">
-                    <div class="reason reason1">
-                        <div class="reason reason1 title">
+                    <div class="reason reason3">
+                        <div class="reason reason3 title">
                             支持定制化服务
                         </div>
 
                         <div class="underline-from-center">
-                            <div class="reason reason1 content">
+                            <div class="reason reason3 content">
                                 独属于你的项目,查重无效
                             </div>
                         </div>
                     </div>
                 </el-col>
                 <el-col :span="12">
-                    <div class="reason reason2">
-                        <div class="reason reason2 title">
-                            多渠道后续服务
+                    <div class="reason reason4">
+                        <div class="reason reason4 title">
+                            多渠道后续支持
                         </div>
                         <div class="underline-from-center">
-                            <div class="reason reason2 content">
+                            <div class="reason reason4 content">
                                 线上线下提供代码讲解与功能解释
                             </div>
                         </div>

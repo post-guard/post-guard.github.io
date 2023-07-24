@@ -7,7 +7,7 @@
           <el-card class="evaluate-card evaluate-card-1"
                    :body-style="{ padding: '0px' }">
 
-              <img src=public/usersFace/Ayaka.jpg>
+              <img src=/usersFace/Ayaka.jpg>
 
               <div class="evaluation">
                   神里

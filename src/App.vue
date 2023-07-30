@@ -41,9 +41,7 @@
                         4
                     </div>
                     <EvaluatePage/>
-                    <div class="section section6">
-                        6
-                    </div>
+                    <AboutPage/>
                 </div>
 
             </el-main>
@@ -56,6 +54,7 @@ import {onMounted, ref} from "vue";
 import HomePage from "@/components/HomePage.vue";
 import SuperiorityPage from "@/components/SuperiorityPage.vue";
 import EvaluatePage from "@/components/EvaluatePage.vue";
+import AboutPage from "@/components/AboutPage.vue";
 
 const sectionController = ref<HTMLElement>();
 

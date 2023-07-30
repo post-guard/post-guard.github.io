@@ -64,6 +64,7 @@
 <script setup lang="ts">
 import {onMounted, ref} from "vue";
 import createRibbons from "@/components/coloredRibbonEvanYou";
+import '/src/assets/font/font.css'
 
 const evaluate_dialog_main = ref<HTMLElement>();
 const evaluate_dialog_name = ref<HTMLElement>();
@@ -278,7 +279,7 @@ function changeEvaluate(newVal: number) {
   font-size: 1.5em;
   color: #409eff;
   line-height: 175%;
-  font-family: "Comic Sans MS", "方正字迹-兰梓蓑笠翁体 简", ui-monospace;
+  font-family: "Comic Sans MS", "FounderType Straw-cloked Man", ui-monospace;
   overflow-x: hidden;
   overflow-y: auto;
   text-align: justify;

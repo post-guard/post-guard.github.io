@@ -1,10 +1,10 @@
 <template>
   <div class="evaluate-page" id="evaluate-page">
     <div class="evaluate-part">
-      <div class="evaluate-dialog">
-        <div class="evaluate-dialog-main" ref="evaluate_dialog_main">
+      <div class="evaluate-dialog" @wheel.stop>
+        <div class="evaluate-dialog-main" ref="evaluate_dialog_main" >
           <!--                    {{ evaluateList[currentEvaluate].dialog }}-->
-          <div v-html="evaluateList[currentEvaluate].dialog"></div>
+          <div v-html="evaluateList[currentEvaluate].dialog" ></div>
         </div>
         <div class="evaluate-dialog-name" ref="evaluate_dialog_name">
           {{ evaluateList[currentEvaluate].name }}
@@ -283,6 +283,8 @@ function changeEvaluate(newVal: number) {
   overflow-y: auto;
   text-align: justify;
   transition: opacity linear 0.2s;
+  padding-right: 1%;
+  padding-left: 1%;
 }
 
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="evaluate-page">
+  <div class="evaluate-page" id="evaluate-page">
     <div class="evaluate-part">
       <div class="evaluate-dialog">
         <div class="evaluate-dialog-main" ref="evaluate_dialog_main">

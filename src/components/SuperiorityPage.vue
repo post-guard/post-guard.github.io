@@ -14,7 +14,7 @@
 
                         <div class="underline-from-center">
                             <div class="reason reason1 content">
-                                课程作业+期末考查,应有尽有
+                                大作业也不太可能跨校合作吧（应该
                             </div>
                         </div>
                     </div>
@@ -26,7 +26,8 @@
                         </div>
                         <div class="underline-from-center">
                             <div class="reason reason2 content">
-                                精美的UI设计,完善的后台控制
+                                完善的代码注释、详尽的自述文件 <br>
+                                让您开箱即用
                             </div>
                         </div>
                     </div>
@@ -38,12 +39,12 @@
                 <el-col :span="12">
                     <div class="reason reason3">
                         <div class="reason reason3 title">
-                            支持定制化服务
+                            流行的技术框架
                         </div>
 
                         <div class="underline-from-center">
                             <div class="reason reason3 content">
-                                独属于你的项目,查重无效
+                                Springboot, Electron, Vue.js
                             </div>
                         </div>
                     </div>
@@ -55,7 +56,8 @@
                         </div>
                         <div class="underline-from-center">
                             <div class="reason reason4 content">
-                                线上线下提供代码讲解与功能解释
+                                可以通过电子邮件、issue等方式同我们激情对线 <br>
+                                亦可以直接线下当面battle
                             </div>
                         </div>
                     </div>

@@ -21,6 +21,7 @@
                 text-align: center;
                 justify-content: center;
                 width: 30%">
+<!--这里完全可以使用循环吧，，，，，-->
         <el-carousel-item class="evaluate-avatar avatar0">
           <el-avatar
               :size=100
@@ -32,28 +33,28 @@
           <el-avatar
               :size=100
               :fit="'cover'"
-              :src=evaluateList[0].avatar
+              :src=evaluateList[1].avatar
           />
         </el-carousel-item>
         <el-carousel-item class="evaluate-avatar avatar2">
           <el-avatar
               :size=100
               :fit="'cover'"
-              :src=evaluateList[0].avatar
+              :src=evaluateList[2].avatar
           />
         </el-carousel-item>
         <el-carousel-item class="evaluate-avatar avatar3">
           <el-avatar
               :size=100
               :fit="'cover'"
-              :src=evaluateList[0].avatar
+              :src=evaluateList[3].avatar
           />
         </el-carousel-item>
         <el-carousel-item class="evaluate-avatar avatar4">
           <el-avatar
               :size=100
               :fit="'cover'"
-              :src=evaluateList[0].avatar
+              :src=evaluateList[4].avatar
           />
         </el-carousel-item>
       </el-carousel>
@@ -72,6 +73,7 @@ const evaluate_dialog_name = ref<HTMLElement>();
 const currentEvaluate = ref(0);
 const evaluateList = ref([
   {
+    // 这里放邮卫兵组织的logo
     avatar: "usersFace/Ayaka.jpg",
     name: "邮卫兵组织召开新闻发布会",
     dialog:
@@ -113,7 +115,7 @@ const evaluateList = ref([
         "没想到我是too young too simple, sometimes naive，这个邮卫兵的产品，真是比其他代写不知道高到哪里去了!"
   },
   {
-    avatar: "usersFace/Ayaka.jpg",
+    avatar: "usersFace/114514.png",
     name: "24岁学生 田所浩二",
     dialog: "那么首先能告诉我你的年龄吗？" + '<br>' +
         "是24岁" + '<br>' +
@@ -148,7 +150,7 @@ const evaluateList = ref([
         "(试过一个又一个产品，邮卫兵无疑是最好的，已经用了这么久了，它依旧霸占第一的绝对领导地位)"
   },
   {
-    avatar: "userFace/Ayaka.jpg",
+    avatar: "usersFace/ricardo.png",
     name: "邮卫兵技术负责人 Ricardo",
     dialog:
         "问：到目前为止，邮卫兵的具体技术是怎么样的呢？ <br>" +

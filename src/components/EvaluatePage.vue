@@ -274,9 +274,9 @@ function changeEvaluate(newVal: number) {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  top: 5%;
+  top: 10%;
   width: 96%;
-  height: 80%;
+  height: 75%;
   background-color: #2098D100;
   font-size: 1.5em;
   color: #409eff;
@@ -319,7 +319,7 @@ function changeEvaluate(newVal: number) {
   font-size: 1.8em;
   color: #409eff;
   line-height: 175%;
-  font-family: "Comic Sans MS", "方正字迹-兰梓蓑笠翁体 简", ui-monospace;
+  font-family: "Comic Sans MS", "FounderType Straw-cloked Man", ui-monospace;
   overflow-x: hidden;
   overflow-y: auto;
   text-align: justify;

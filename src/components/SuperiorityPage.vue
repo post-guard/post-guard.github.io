@@ -152,7 +152,7 @@ onMounted(() => {
 
 .superiority-page-title {
     margin: 10% auto 90% auto;
-    font-size: 2vi;
+    font-size: 2em;
     opacity: 0;
     color: cornflowerblue;
     transition: all 1s ease;
@@ -177,13 +177,13 @@ onMounted(() => {
 
 .title {
     color: cornflowerblue;
-    font-size: 1.4vi;
+    font-size: 1.4em;
 }
 
 .content {
 
     width: 100%;
-    font-size: 1.2vi;
+    font-size: 1.2em;
 }
 
 

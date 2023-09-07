@@ -224,6 +224,7 @@ function changeEvaluate(newVal: number) {
   width: 100%;
   height: 100%;
   overflow: hidden;
+  background-color: rgba(247, 250, 255, 0.40);
 }
 
 .evaluate-part {

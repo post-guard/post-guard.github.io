@@ -37,9 +37,7 @@
                     <SuperiorityPage :current-page=pageController.currentPage
                                      :page-number=3
                     />
-                    <div class="section section4">
-                        4
-                    </div>
+                    <VisionPage/>
                     <EvaluatePage/>
                     <AboutPage/>
                 </div>
@@ -55,6 +53,7 @@ import HomePage from "@/components/HomePage.vue";
 import SuperiorityPage from "@/components/SuperiorityPage.vue";
 import EvaluatePage from "@/components/EvaluatePage.vue";
 import AboutPage from "@/components/AboutPage.vue";
+import VisionPage from "@/components/VisionPage.vue";
 
 const sectionController = ref<HTMLElement>();
 

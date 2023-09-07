@@ -26,7 +26,7 @@
                             <el-avatar
                                     class="about-page-member-single-avatar"
                                     :src = member.avatar
-                                    :size=250
+                                    :size=200
                                     :fit="'cover'"
                             />
                             <div class="about-page-member-single-name">
@@ -57,7 +57,7 @@ const memberList = ref(
             avatar:"usersFace/Ayaka.jpg",
             name: "ichirinko",
             introduce: "乐子人",
-            dialog: "新佛曰：諸隸僧皤降吽諸陀摩隸僧皤缽皤薩嚤皤斯咒皤諦皤伏僧諸嘚皤僧皤吽吶嘇羅陀皤嚩空咤愍皤缽摩若嚤菩諦皤祗陀陀皤須皤嘚嚤所哆嘇祗哆僧嘇若隸皤宣嚴咤降空皤愍嚴吶哆嘚彌咒心皤若如如囑皤"
+            dialog: ""
         },
         {
             avatar:"usersFace/Ayaka.jpg",
@@ -84,6 +84,7 @@ const memberList = ref(
     display: flex;
     padding: 0;
     margin: 0;
+    background-color: #ebf5ff;
 }
 
 .about-page-title {
